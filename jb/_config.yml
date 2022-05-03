@@ -10,6 +10,12 @@ author: Adam Kruschka Gray
 execute:
   execute_notebooks: force
 
+# sphinx config
+sphinx:
+  config:
+    html_theme_options:
+      search_bar_text: "Search..."
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
