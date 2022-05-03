@@ -3,7 +3,7 @@
 
 title: akg.xyz
 author: Adam Kruschka Gray
-logo: logo.png
+#logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -16,8 +16,8 @@ latex:
     targetname: site.tex
 
 # Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+#bibtex_bibfiles:
+#  - references.bib
 
 # Information about where the book exists on the web
 repository:
