@@ -25,7 +25,7 @@ $ diskutil eraseDisk FAT32 NAME /dev/diskN
 NOTE: `NAME` can be anything but it must be all capital letters. This will erase the contents of your disk and reformat it to MS-DOS FAT 32, which is the format you want.
 
 
-## Umounting the Drive
+## Unmounting the Drive
 
 After erasing and formatting the drive, we must unmount it. Run:
 

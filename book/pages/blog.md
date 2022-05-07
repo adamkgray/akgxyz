@@ -1,6 +1,6 @@
 # Blog
 
-This is an informal blog for ideas, notebooks and problems on the topic of tech, in particular solutions architecture as it relates to data science.
+This is an informal blog for ideas, notebooks and problems on the topic of tech - in particular solutions architecture as it relates to data science.
 
 ### Recent Posts
 
