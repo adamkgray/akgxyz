@@ -1,1 +1,0 @@
-# How to make a bootable USB on Mac using the CLI

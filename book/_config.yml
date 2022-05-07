@@ -3,7 +3,8 @@
 
 title: akg.xyz
 author: Adam Kruschka Gray
-#logo: logo.png
+copyright: "2022"
+logo: ralsei.gif
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -13,6 +14,7 @@ execute:
 # sphinx config
 sphinx:
   config:
+    html_theme: "furo"
     html_theme_options:
       search_bar_text: "Search..."
 
