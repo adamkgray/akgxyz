@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: akg.xyz
-author: Adam Kruschka Gray
+author: Adam K Gray
 copyright: "2022"
-logo: ralsei.gif
+logo: me.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -15,8 +15,9 @@ execute:
 sphinx:
   config:
     html_theme: "furo"
-    html_theme_options:
-      search_bar_text: "Search..."
+#   search_bar_text does not apply to the 'furo' theme!
+#   html_theme_options:
+#     search_bar_text: "Search..."
 
 # Define the name of the latex output file for PDF builds
 latex:

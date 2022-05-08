@@ -4,4 +4,5 @@ This is an informal blog for ideas, notebooks and problems on the topic of tech 
 
 ### Recent Posts
 
+* [Writing a Turing Machine in Go](/blog_posts/turing_machine)
 * [Formatting a bootable drive on Mac using the CLI](/blog_posts/bootable_usb_on_mac)
