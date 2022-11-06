@@ -1,0 +1,4 @@
+.git/**/*
+.git
+book/_build/**/*
+book/_build

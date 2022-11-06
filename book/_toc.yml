@@ -7,6 +7,4 @@ chapters:
 - file: pages/CV
 - file: pages/blog
   sections:
-  - file: blog_posts/debugger/debugger
-  - file: blog_posts/turing_machine
   - file: blog_posts/bootable_usb_on_mac
