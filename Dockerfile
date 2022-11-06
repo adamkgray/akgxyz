@@ -3,7 +3,7 @@ WORKDIR /build
 COPY . .
 RUN pip install -r book/requirements.txt
 RUN jb clean book
-RUN jb build
+RUN jb build book
 
 FROM nginx:1.23.2
 COPY --from=build /build/book/_build/html /usr/share/nginx/
