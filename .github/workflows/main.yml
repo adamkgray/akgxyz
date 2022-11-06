@@ -2,8 +2,9 @@
 name: Kaniko build
 on:
   push:
-    tags:
+    branches:
       - "main"
+    tags:
       - "*.*.*"
 jobs:
   jewellery:
