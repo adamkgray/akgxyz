@@ -9,7 +9,7 @@ metadata:
     service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
     # doctl compute certificate list
     # doctl compute certificate list | awk '{ print $1 }'
-    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "570b919c-5c37-410f-8d0e-7f27b4e0c3cd"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "c574792f-0ca3-4c5a-8463-3086fe5c80c3"
     service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
     service.beta.kubernetes.io/do-loadbalancer-disable-lets-encrypt-dns-records: "true"
 spec:
@@ -25,6 +25,33 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nb
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+    # doctl compute certificate list
+    # doctl compute certificate list | awk '{ print $1 }'
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "c574792f-0ca3-4c5a-8463-3086fe5c80c3"
+    service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
+    service.beta.kubernetes.io/do-loadbalancer-disable-lets-encrypt-dns-records: "true"
+spec:
+  type: LoadBalancer
+  selector:
+    app: nb
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8888
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8888
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -46,5 +73,30 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+          protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nb
+  template:
+    metadata:
+      labels:
+        app: nb
+    spec:
+      containers:
+      - name: main
+        image: jupyter/base-notebook
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: nb
+        ports:
+        - containerPort: 8888
           protocol: TCP
 
