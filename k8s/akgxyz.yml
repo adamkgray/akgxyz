@@ -74,29 +74,4 @@ spec:
         ports:
         - containerPort: 80
           protocol: TCP
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nb
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: nb
-  template:
-    metadata:
-      labels:
-        app: nb
-    spec:
-      containers:
-      - name: main
-        image: jupyter/base-notebook
-        imagePullPolicy: Always
-        envFrom:
-        - secretRef:
-            name: nb
-        ports:
-        - containerPort: 8888
-          protocol: TCP
 
