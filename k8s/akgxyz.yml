@@ -26,33 +26,6 @@ spec:
       port: 443
       targetPort: 80
 ---
-kind: Service
-apiVersion: v1
-metadata:
-  name: nb
-  annotations:
-    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
-    service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
-    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
-    # doctl compute certificate list
-    # doctl compute certificate list | awk '{ print $1 }'
-    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "c574792f-0ca3-4c5a-8463-3086fe5c80c3"
-    service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
-    service.beta.kubernetes.io/do-loadbalancer-disable-lets-encrypt-dns-records: "true"
-spec:
-  type: LoadBalancer
-  selector:
-    app: nb
-  ports:
-    - name: http
-      protocol: TCP
-      port: 80
-      targetPort: 8888
-    - name: https
-      protocol: TCP
-      port: 443
-      targetPort: 8888
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
